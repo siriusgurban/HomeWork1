@@ -2,41 +2,31 @@ package hw4;
 
 public class Main {
 
-
-
     public static void main(String[] args)
     {
-        Pet dog = new Pet("dog","Rock",6, 75, "eat, drink, sleep");
-        dog.getEat();
-        dog.getRespond();
-        dog.getFoul();
+        Pet pet1 = new Pet("dog","Rock",5, 75, "eat, drink, sleep");
+        Pet pet2 = new Pet("dog", "Rock");
+        pet1.getEat();
+        pet1.getRespond();
+        pet1.getFoul();
+
+        System.out.println(pet1.toString());
 
 
-        System.out.println(dog.toString());
+        Human someBody = new Human("Michael","Karleone",1977,90,"Jane Karleone","Vito Karleone","pet");
+        someBody.getGreetPet();
+        someBody.getDescribePet();
+        Human mother = new Human();
+        Human father = new Human();
+        Pet pet = new Pet();
+
+        System.out.println(someBody.toString() + pet1.toString());
 
 
-
-
-
-//        Pet.class.toString();
-//        {
-//            return(this.getNickname() + this.getAge()+ this.getTrickLevel() + this.getHabits());
-//
-//        }
 
 //        Pet dog = new Pet("dog","Rock",5, 75, "eat, drink, sleep");
-
+//Human{name='Michael', surname='Karleone', year=1977, iq=90, mother=Jane Karleone, father=Vito Karleone, pet=dog{nickname='Rock', age=5, trickLevel=75, habits=[eat, drink, sleep]}}
     }
-
-    public static void main1(String[] args)
-    {
-        Human human = new Human("Michael", "Karleone", 1977, 90, "Jane Karleone", "Vito Karleone", "sd");
-        System.out.println(human.toString());
-    }
-
-
-
-
 
 
 
