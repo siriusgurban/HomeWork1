@@ -26,13 +26,12 @@ public class main{
         scedule[6][1] = "learn new combos of Cyrax";
 
         String userIn = "";
-        String ex = "exit";
 
         do{
             System.out.println("Please, input the day of the week: ");
             Scanner input = new Scanner(System.in);
             userIn = input.nextLine().trim().toLowerCase();
-            if (userIn != "exit"){
+            if (!userIn.equals("exit")){
 
                 for(int i=0; i<scedule.length; i++){
                     for(int j=0; j<scedule[i].length; j++){
@@ -54,7 +53,7 @@ public class main{
 
                             } } } } }else{ System.exit(0);}}
 
-                     while (!userIn.equals(ex));
+                     while (!userIn.equals("exit"));
 
 
     }
