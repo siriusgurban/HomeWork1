@@ -32,7 +32,7 @@ public class main{
             System.out.println("Please, input the day of the week: ");
             Scanner input = new Scanner(System.in);
             userIn = input.nextLine().trim().toLowerCase();
-            if (userIn.equals("sunday") || userIn.equals("monday") || userIn.equals("tuesday") || userIn.equals("wednesday") || userIn.equals("thursday")){
+            if (userIn.equals("sunday") || userIn.equals("monday") || userIn.equals("tuesday") || userIn.equals("wednesday") || userIn.equals("thursday") || userIn.equals("friday") || userIn.equals("saturday")){
                 if (!userIn.equals("exit")){
                     for(int i=0; i<scedule.length; i++){
 
