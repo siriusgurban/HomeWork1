@@ -25,6 +25,7 @@ public class main{
         scedule[6][0] = "Saturday";
         scedule[6][1] = "learn polymorphism";
 
+
         String userIn = "";
 
         do{
