@@ -1,4 +1,4 @@
-package hw4;
+package hw5;
 
 public class Human extends Pet{
     public String name;
@@ -72,6 +72,3 @@ public class Human extends Pet{
     //species + "{"+ "nickname"+ "="+ nickname  + ", " + "age" + "=" + age + ", "+ "trickLevel"+ "=" + trickLevel + ", "+ "habits" + "=["+ habits + "]}"
 
 }
-
-
-

@@ -1,4 +1,4 @@
-package hw4;
+package hw5;
 
 public class Pet {
 
@@ -60,5 +60,4 @@ public class Pet {
                 '}';
     }
 }
-
 
