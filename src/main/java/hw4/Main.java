@@ -1,34 +1,19 @@
 package hw4;
 
 public class Main {
-
-    public static void main(String[] args)
-    {
-        Pet pet1 = new Pet("dog","Rock",5, 75, "eat, drink, sleep");
-        Pet pet2 = new Pet("dog", "Rock");
-        pet1.getEat();
-        pet1.getRespond();
-        pet1.getFoul();
-
-        System.out.println(pet1.toString());
+    public static void main(String[] args) {
+        Pet dog = new Pet("Dog", "Rock", 5, 75, new String[]{"eat, drink, sleep"});
+        Human grandfather = new Human();
+        Human father  = new Human("Donatello","Cell", 1960) ;
+        Human mother = new Human("April","Cell", 1970);
+        Human child = new Human("Michelangelo","Cell", 1995, 100, dog, father, mother, new String[1][1]);
 
 
-        Human someBody = new Human("Michael","Karleone",1977,90,"Jane Karleone","Vito Karleone","pet");
-        someBody.getGreetPet();
-        someBody.getDescribePet();
-        Human mother = new Human();
-        Human father = new Human();
-        Pet pet = new Pet();
-
-        System.out.println(someBody.toString() + pet1.toString());
-
-
-
-//        Pet dog = new Pet("dog","Rock",5, 75, "eat, drink, sleep");
-//Human{name='Michael', surname='Karleone', year=1977, iq=90, mother=Jane Karleone, father=Vito Karleone, pet=dog{nickname='Rock', age=5, trickLevel=75, habits=[eat, drink, sleep]}}
+        System.out.println(child);
+        child.describePet();
+        child.greetPet();
+        System.out.printf("Grandmaster %s ",grandfather);
+        System.out.printf("Father %s \n",father);
+        System.out.printf("Mother %s \n",mother);
     }
-
-
-
 }
-

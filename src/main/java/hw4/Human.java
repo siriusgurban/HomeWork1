@@ -1,77 +1,73 @@
 package hw4;
 
-public class Human extends Pet{
-    public String name;
-    public String surname;
-    public int iq;
-    public int year;
-    public String pet;
-    public String mother;
-    public String father;
 
-    public void getGreetPet() {
-        System.out.println("Hello, " + nickname);
-    }
+class Human {
+    private String name;
+    private String surname;
+    private int year;
+    private int iq;
+    private Pet pet;
+    private Human mother;
+    private Human father;
+    private String[][] schedule;
 
 
-    public void getDescribePet() {
-        System.out.println("I have a " + species + ", he is " + age + " years old, he is [very sly]>50/[almost not sly]<50");
-    }
-
-
-
-    public Human(String name, String surname, int year) {
-        this.name = name;
-        this.surname = surname;
-        this.year = year;
-    }
-
-    public Human(String name, String surname, int year, String mother, String father) {
-        this.name = name;
-        this.surname = surname;
-        this.year = year;
-        this.mother = mother;
-        this.father = father;
-    }
-
-    public Human(String name, String surname, int year, int iq, String mother, String father, String pet) {
-        this.name = name;
-        this.surname = surname;
-        this.iq = iq;
-        this.year = year;
-        this.mother = mother;
-        this.father = father;
-        this.pet = pet;
-    }
-
-    public Human() {
-
+    private String getFullName() {
+        return name + " " + surname;
     }
 
     @Override
     public String toString() {
-        return "Human{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", iq=" + iq +
-                ", year=" + year +
-                ", pet='" + pet + '\'' +
-                ", mother='" + mother + '\'' +
-                ", father='" + father + '\'' +
-                '}';
+        if (name == null) {
+            return "no info\n";
+        } else if (pet == null) {
+            return "Human{" + "name='" + name + '\'' +
+                    ", surname='" + surname + '\'' +
+                    ", year=" + year +
+                    "}";
+        } else {
+            return "Human{" + "name='" + name + '\'' +
+                    ", surname='" + surname + '\'' +
+                    ", year=" + year +
+                    ", iq=" + iq +
+                    ", pet=" + pet +
+                    ", mother=" + mother.getFullName() +
+                    ", father=" + father.getFullName() +
+                    "}";
+        }
+
     }
-//
-//        public String toString()
-//    {
-//        return "Human" + "{"+ "name"+ "=" + name  + ", " + "surname" + "=" + surname + ", " + "year"+ "=" + year + ", "
-//                + "iq"+ "=" + iq + ", " + "mother"+ "=" + mother + ", " + "father"+ "=" + father + ", ";
-//    }
+
+    Human() {
+    }
+
+    Human(String name, String surname, int year) {
+        this.name = name;
+        this.surname = surname;
+        this.year = year;
+    }
+
+    Human(String name, String surname, int year, int iq, Pet pet, Human father, Human mother, String[][] schedule) {
+        this.name = name;
+        this.surname = surname;
+        this.year = year;
+        this.iq = iq;
+        this.pet = pet;
+        this.mother = mother;
+        this.father = father;
+        this.schedule = schedule;
+    }
 
 
+    void describePet() {
+        if (pet.trickLevel >= 50) {
+            System.out.printf("I have a %s, he is %d years old, he is very sly\n", pet.species, pet.age);
+        } else {
+            System.out.printf("I have a %s, he is %d years old, he is almost not sly\n", pet.species, pet.age);
+        }
+    }
 
-    //species + "{"+ "nickname"+ "="+ nickname  + ", " + "age" + "=" + age + ", "+ "trickLevel"+ "=" + trickLevel + ", "+ "habits" + "=["+ habits + "]}"
-
+    void greetPet() {
+        System.out.printf("Hello, %s\n", pet.nickname);
+    }
 }
-
-
-
