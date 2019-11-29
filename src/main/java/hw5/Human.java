@@ -1,74 +1,89 @@
 package hw5;
 
-public class Human extends Pet{
-    public String name;
-    public String surname;
-    public int iq;
-    public int year;
-    public String pet;
-    public String mother;
-    public String father;
+import java.util.Arrays;
+import java.util.Objects;
 
-    public void getGreetPet() {
-        System.out.println("Hello, " + nickname);
+class Human {
+    private String name;
+    private String surname;
+    private int year;
+    private int iq;
+    private String[][] schedule;
+
+    private Family family;
+
+    Family getFamily() {
+        return family;
     }
 
-
-    public void getDescribePet() {
-        System.out.println("I have a " + species + ", he is " + age + " years old, he is [very sly]>50/[almost not sly]<50");
+    void setFamily(Family family) {
+        this.family = family;
     }
 
-
-
-    public Human(String name, String surname, int year) {
+    Human(String name, String surname, int year) {
         this.name = name;
         this.surname = surname;
         this.year = year;
     }
 
-    public Human(String name, String surname, int year, String mother, String father) {
+    Human() {
+    }
+
+    Human(String name, String surname, int year, int iq, String[][] schedule) {
         this.name = name;
         this.surname = surname;
         this.year = year;
-        this.mother = mother;
-        this.father = father;
-    }
-
-    public Human(String name, String surname, int year, int iq, String mother, String father, String pet) {
-        this.name = name;
-        this.surname = surname;
         this.iq = iq;
-        this.year = year;
-        this.mother = mother;
-        this.father = father;
-        this.pet = pet;
+        this.schedule = schedule;
     }
 
-    public Human() {
-
+    public String getFullName() {
+        return name + " " + surname;
     }
+
+
+    @Override
+    public boolean equals(Object that) {
+        if (that == null || getClass() != that.getClass()) return false;
+        if (this == that) return true;
+        Human human = (Human) that;
+        return year == human.year &&
+                Objects.equals(name, human.name) &&
+                Objects.equals(surname, human.surname);
+    }
+
+
+    @Override
+    public int hashCode() {
+        return name.hashCode() * surname.hashCode() * year * -1 + year;
+    }
+
+
 
     @Override
     public String toString() {
-        return "Human{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", iq=" + iq +
-                ", year=" + year +
-                ", pet='" + pet + '\'' +
-                ", mother='" + mother + '\'' +
-                ", father='" + father + '\'' +
-                '}';
+        if (name == null) {
+            return "no info\n";
+        } else if (iq == 0) {
+            return "Human{" + "name='" + name + '\'' +
+                    ", surname='" + surname + '\'' +
+                    ", year=" + year +
+                    "}";
+        } else if (schedule[0][0] == null) {
+            return "Human{" + "name='" + name + '\'' +
+                    ", surname='" + surname + '\'' +
+                    ", year=" + year +
+                    "}";
+        } else {
+            return "Human{" + "name='" + name + '\'' +
+                    ", surname='" + surname + '\'' +
+                    ", year=" + year +
+                    ", iq=" + iq +
+                    ", schedule=" + Arrays.deepToString(schedule) +
+                    "}";
+        }
+
+
+
     }
-//
-//        public String toString()
-//    {
-//        return "Human" + "{"+ "name"+ "=" + name  + ", " + "surname" + "=" + surname + ", " + "year"+ "=" + year + ", "
-//                + "iq"+ "=" + iq + ", " + "mother"+ "=" + mother + ", " + "father"+ "=" + father + ", ";
-//    }
-
-
-
-    //species + "{"+ "nickname"+ "="+ nickname  + ", " + "age" + "=" + age + ", "+ "trickLevel"+ "=" + trickLevel + ", "+ "habits" + "=["+ habits + "]}"
-
 }

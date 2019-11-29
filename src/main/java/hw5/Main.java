@@ -1,36 +1,28 @@
 package hw5;
 
-
 public class Main {
-
-    public static void main(String[] args)
-    {
-        Pet pet1 = new Pet("dog","Rock",5, 75, "eat, drink, sleep");
-        Pet pet2 = new Pet("dog", "Rock");
-        pet1.getEat();
-        pet1.getRespond();
-        pet1.getFoul();
-
-        System.out.println(pet1.toString());
+    public static void main(String[] args) {
+        Pet dog = new Pet("Dog", "Rock", 5, 75, new String[]{"eat", "sleep"});
+        Human grandfather = new Human();
+        Human father  = new Human("Donatello","Cell", 1960) ;
+        Human mother = new Human("April","Cell", 1970);
+        Human child1 = new Human("Michelangelo","Cell", 1995, 100,  new String[1][1]);
+        Human child2 = new Human("Raffaello","Cell", 1994, 90,  new String[][]{{"Day_1", "Task_1"}, {"Day_2", "Task_2"}});
 
 
-        Human someBody = new Human("Michael","Karleone",1977,90,"Jane Karleone","Vito Karleone","pet");
-        someBody.getGreetPet();
-        someBody.getDescribePet();
-        Human mother = new Human();
-        Human father = new Human();
-        Pet pet = new Pet();
-
-        System.out.println(someBody.toString() + pet1.toString());
-
-//        Family.toString();
-        System.out.println();
-
-
-//        Pet dog = new Pet("dog","Rock",5, 75, "eat, drink, sleep");
-//Human{name='Michael', surname='Karleone', year=1977, iq=90, mother=Jane Karleone, father=Vito Karleone, pet=dog{nickname='Rock', age=5, trickLevel=75, habits=[eat, drink, sleep]}}
+        Family cellFamily = new Family(father, mother);
+        System.out.println(cellFamily);
+        cellFamily.addChild(child1);
+        System.out.println(cellFamily);
+        System.out.println(father.getFamily());
+        cellFamily.addChild(child2);
+        System.out.println(child2.getFamily());
+        cellFamily.deleteChild(0);
+        System.out.println(child1.getFamily());
+        System.out.println(mother.getFamily());
+        System.out.println(father.hashCode());
+        System.out.println(cellFamily.hashCode());
+        cellFamily.addChild(child2);
+        System.out.println(cellFamily.hashCode());
     }
-
-
-
 }

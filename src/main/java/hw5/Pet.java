@@ -1,19 +1,37 @@
 package hw5;
 
-public class Pet {
+import java.util.Arrays;
+import java.util.Objects;
 
-    public String species;
-    public String nickname;
-    public int age;
-    public int trickLevel;
-    public String habits;
+class Pet {
 
-    public Pet(String species, String nickname, int age, int trickLevel, String habits) {
-        this.species = species;
-        this.nickname = nickname;
-        this.age = age;
-        this.trickLevel = trickLevel;
-        this.habits = habits;
+    private String species;
+    private String nickname;
+    private int age;
+    private int trickLevel;
+    private String[] habits;
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public String getSpecies() {
+        return species;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public int getTrickLevel() {
+        return trickLevel;
+    }
+
+    public String[] getHabits() {
+        return habits;
+    }
+
+    public Pet() {
     }
 
     public Pet(String species, String nickname) {
@@ -21,43 +39,59 @@ public class Pet {
         this.nickname = nickname;
     }
 
-    public Pet() {
-
+    public Pet(String species, String nickname, int age, int trickLevel, String[] habits) {
+        this.species = species;
+        this.nickname = nickname;
+        this.age = age;
+        this.trickLevel = trickLevel;
+        this.habits = habits;
     }
 
-
-
-    public void getEat() {
-        System.out.println("I am eating");
+    static void eat() {
+        System.out.println("I am eating\n");
     }
 
-
-    public void getRespond() {
-        System.out.println("Hello, owner. I am - " + species + ". " + "I miss you!");
+    void respond() {
+        System.out.printf("Hello, owner. I am - %s. I miss you!\n", getNickname());
     }
 
-
-    public void getFoul() {
-        System.out.println("I need to cover it up");
+    static void foul() {
+        System.out.println("I need to cover it up\n");
     }
-
-
-
-//    public String toString()
-//    {
-//        return species + "{"+ "nickname"+ "="+ nickname  + ", " + "age" + "=" + age + ", "+ "trickLevel"+ "=" + trickLevel + ", "+ "habits" + "=["+ habits + "]}";
-//    }
-
 
     @Override
     public String toString() {
-        return "Pet{" +
-                "species='" + species + '\'' +
-                ", nickname='" + nickname + '\'' +
-                ", age=" + age +
-                ", trickLevel=" + trickLevel +
-                ", habits='" + habits + '\'' +
-                '}';
+        if (nickname == null) {
+            return "no info";
+        } else if (age == 0) {
+            return "Pet{" + "species='" + species + '\'' +
+                    ", nickname='" + nickname + '\'' +
+                    '}';
+        } else {
+            return "Pet{" + "species='" + species + '\'' +
+                    ", nickname='" + nickname + '\'' +
+                    ", age=" + age +
+                    ", trickLevel=" + trickLevel +
+                    ", habits=" + Arrays.toString(habits) +
+                    '}';
+        }
     }
-}
 
+    @Override
+    public boolean equals(Object that) {
+        if (that == null || getClass() != that.getClass()) return false;
+        if (this == that) return true;
+        Pet pet = (Pet) that;
+        return age == pet.age &&
+                trickLevel == pet.trickLevel &&
+                species.equals(pet.species) &&
+                Objects.equals(nickname, pet.nickname);
+    }
+
+    @Override
+    public int hashCode() {
+        return species.hashCode() * age * nickname.hashCode() * trickLevel * -1;
+    }
+
+
+}
