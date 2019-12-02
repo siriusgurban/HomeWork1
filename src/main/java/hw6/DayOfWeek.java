@@ -1,13 +1,14 @@
 package hw6;
 
 
-public enum Week {
+public enum DayOfWeek {
+    SUNDAY,
     MONDAY,
     TUESDAY,
     WEDNESDAY,
     THURSDAY,
     FRIDAY,
-    SATURDAY,
-    SUNDAY
+    SATURDAY
+
 
 }

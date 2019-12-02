@@ -1,9 +1,10 @@
 package hw6;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
-class Human {
+public class Human {
     private String name;
     private String surname;
     private int year;
@@ -12,7 +13,7 @@ class Human {
 
     private Family family;
 
-    Family getFamily() {
+    public Family getFamily() {
         return family;
     }
 
@@ -20,7 +21,7 @@ class Human {
         this.family = family;
     }
 
-    Human(String name, String surname, int year) {
+    public Human(String name, String surname, int year) {
         this.name = name;
         this.surname = surname;
         this.year = year;
@@ -29,7 +30,7 @@ class Human {
     Human() {
     }
 
-    Human(String name, String surname, int year, int iq, String[][] schedule) {
+    public Human(String name, String surname, int year, int iq, String[][] schedule) {
         this.name = name;
         this.surname = surname;
         this.year = year;
@@ -52,12 +53,40 @@ class Human {
                 Objects.equals(surname, human.surname);
     }
 
-
     @Override
     public int hashCode() {
         return name.hashCode() * surname.hashCode() * year * -1 + year;
     }
 
+    @Override
+    protected void finalize() throws Throwable {
+        System.out.println("finalize " + this);
+        super.finalize();
+    }
+
+    @Override
+    public String toString() {
+        if (name == null) {
+            return "no info\n";
+        } else if (iq == 0) {
+            return "Human{" + "name='" + name + '\'' +
+                    ", surname='" + surname + '\'' +
+                    ", year=" + year +
+                    "}";
+        } else if (schedule == null) {
+            return "Human{" + "name='" + name + '\'' +
+                    ", surname='" + surname + '\'' +
+                    ", year=" + year +
+                    "}";
+        } else {
+            return "Human{" + "name='" + name + '\'' +
+                    ", surname='" + surname + '\'' +
+                    ", year=" + year +
+                    ", iq=" + iq +
+                    ", schedule=" + Arrays.deepToString(schedule) +
+                    "}";
+        }
 
 
     }
+}
