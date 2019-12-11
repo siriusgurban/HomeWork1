@@ -17,5 +17,6 @@ public class Main {
         Family family = new Family(father, mother);
         family.addChild(child1);
         System.out.println(Arrays.toString(family.getChildren()));
+
     }
 }
