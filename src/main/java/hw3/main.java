@@ -1,6 +1,6 @@
 package hw3;
 
-import sun.plugin.javascript.navig.Array;
+//import sun.plugin.javascript.navig.Array;
 
 import java.util.Scanner;
 import java.util.Arrays;
