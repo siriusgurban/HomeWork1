@@ -1,4 +1,8 @@
-package hw7.human;
+package hw8.human;
+
+import hw8.DayOfWeek;
+
+import java.util.Map;
 
 public final class Woman extends Human {
 
@@ -13,7 +17,7 @@ public final class Woman extends Human {
         super(name, surname, year, iq);
     }
 
-    public Woman(String name, String surname, int year, int iq, String[][] schedule) {
+    public Woman(String name, String surname, int year, int iq, Map<DayOfWeek, String> schedule) {
         super(name, surname, year, iq, schedule);
     }
 
